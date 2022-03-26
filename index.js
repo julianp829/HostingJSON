@@ -155,6 +155,35 @@ app.get('/daredevil', (request, response) => {
 
 
 
+// Return personal as JSON.
+var JulianPala = {
+	"firstName":"Julian",
+	"lastName":"Pala",
+	"email":"julianpala@lewisu.edu",
+	"city":"Orland Hills",
+	"state":"IL",
+	"zip":"60487",
+	"favoriteHobby":"Hockey",
+	"class":"cpsc-24500-001",
+	"room":"AS-104-A",
+	"startTime":"2 PM CT",
+	"seatNumber":"3",
+	"inPerson":[
+		"Monday", 
+		"Wednesday"
+	],
+	"virtual":[
+		"Friday"
+	]
+}
+
+app.get('/personal', (request, response) => {
+	console.log('Calling "/personal" on the Node.js server.')
+	response.type('application/json')
+	response.send(JSON.stringify(JulianPala, null, 4))
+})
+
+
 
 // Custom 404 page.
 app.use((request, response) => {
